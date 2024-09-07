@@ -1,0 +1,22 @@
+{
+  "name": "cypress-pom-appactions",
+  "version": "1.0.0",
+  "description": "Testes em Cypress com uso de POM e AppActions",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joycepontesf/cypress-pom-appactions.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joycepontesf/cypress-pom-appactions/issues"
+  },
+  "homepage": "https://github.com/joycepontesf/cypress-pom-appactions#readme",
+  "dependencies": {
+    "cypress": "^13.14.2"
+  }
+}
