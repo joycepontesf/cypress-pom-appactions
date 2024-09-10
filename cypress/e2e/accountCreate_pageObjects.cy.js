@@ -1,6 +1,8 @@
 /// <reference types="cypress" />
 
-import newAccount from "../support/pages/login/index.js"
+import newAccount from "../support/pages/login/index"
+import { firstName } from "../support/pages/login/index"
+import { elements } from '../support/elements';
 
 describe('', () => {
 
@@ -9,16 +11,15 @@ describe('', () => {
         cy.visit('/')
     })
 
-    it.only('Create account successfully', () => {
-
+    it('Create account successfully', () => {
         newAccount.accessProfilePage()
         newAccount.fillNewAccountInformation()
     
+        cy.contains(elements.username, firstName).should('exist')
     })
-
-    /*
+    
     afterEach(() => {
         cy.clearAllCookies
     })
-*/
+
 })
