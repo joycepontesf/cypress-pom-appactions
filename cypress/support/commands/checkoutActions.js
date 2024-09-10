@@ -1,25 +1,22 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+import { elements } from '../elements.js';
+import { email, password } from '../../fixtures/testData.json';
+
+Cypress.Commands.add('login', () => {
+    cy.get(elements.btnProfile).click()
+    cy.get(elements.txtEmail).type(email)
+    cy.get(elements.txtPassword).eq(0).type(password)
+    cy.get(elements.btnLogin).click()
+
+})
+
+Cypress.Commands.add('addProducts', () => {
+    cy.get(elements.product).eq(0).click()
+    cy.get(elements.btnPurchase).click()
+    cy.get(elements.btnContinueToCheckout).click()
+    cy.get(elements.btnCheckout).click()
+    cy.wait(1000)
+    cy.get(elements.btnOrder).click()
+    cy.get(elements.processingOrders).click()
+
+})
