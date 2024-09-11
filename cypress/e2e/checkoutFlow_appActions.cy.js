@@ -7,17 +7,19 @@ describe('', () => {
     beforeEach(() => {
         cy.setCookie('ebacStoreVersion', 'v2', { domain: 'lojaebac.ebaconline.art.br' })
         cy.visit('/')
-    });
+        cy.login()
+    })
 
     it('Complete purchase successfully', () => {
-        cy.login()
         cy.addProducts()
+        cy.accessOrders()
 
         cy.get(elements.item).should('exist')
-    });
+    })
 
     afterEach(() => {
+        cy.cancelOrder()
         cy.clearAllCookies
-    });
+    })
 
-});
+})
