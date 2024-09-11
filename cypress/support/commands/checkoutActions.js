@@ -7,7 +7,6 @@ Cypress.Commands.add('login', () => {
     cy.get(elements.txtEmail).type(email)
     cy.get(elements.txtPassword).eq(0).type(password)
     cy.get(elements.btnLogin).click()
-
 })
 
 Cypress.Commands.add('addProducts', () => {
@@ -16,7 +15,16 @@ Cypress.Commands.add('addProducts', () => {
     cy.get(elements.btnContinueToCheckout).click()
     cy.get(elements.btnCheckout).click()
     cy.wait(1000)
+})
+
+Cypress.Commands.add('accessOrders', () => {
     cy.get(elements.btnOrder).click()
     cy.get(elements.processingOrders).click()
+})
 
+Cypress.Commands.add('cancelOrder', () => {
+    cy.get(elements.btnCancelOrder).click()
+    cy.get(elements.btnConfirmCancelOrder).click()
+
+    cy.get(elements.item).should('not.exist')
 })
