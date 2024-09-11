@@ -2,11 +2,11 @@
 import { elements } from '../../elements';
 import { faker } from '@faker-js/faker';
 
-let password = faker.internet.password()
-let firstName = faker.name.firstName()
-let lastName = faker.name.lastName()
-let phone = faker.phone.number()
-let email = faker.internet.email()
+export let password = faker.internet.password()
+export let firstName = faker.name.firstName()
+export let lastName = faker.name.lastName()
+export let phone = faker.phone.number()
+export let email = faker.internet.email()
 
 class newAccount {
     
@@ -16,7 +16,6 @@ class newAccount {
     }
 
     fillNewAccountInformation() {
-
         cy.get(elements.btnsignUp).click()
         cy.get(elements.txtFirstName).type(firstName)
         cy.get(elements.txtLastName).type(lastName)
@@ -26,7 +25,6 @@ class newAccount {
         cy.get(elements.txtConfirmPassword).type(password)
         cy.get(elements.btnCreate).click()
         cy.get(elements.btnProfile).click()
-
     }
 }
 
