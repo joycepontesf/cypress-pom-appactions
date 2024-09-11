@@ -9,10 +9,10 @@ describe('', () => {
     beforeEach(() => {
         cy.setCookie('ebacStoreVersion', 'v2', { domain: 'lojaebac.ebaconline.art.br' })
         cy.visit('/')
+        newAccount.accessProfilePage()
     })
 
     it('Create account successfully', () => {
-        newAccount.accessProfilePage()
         newAccount.fillNewAccountInformation()
     
         cy.contains(elements.username, firstName).should('exist')
