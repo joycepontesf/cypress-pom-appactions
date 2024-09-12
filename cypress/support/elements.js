@@ -22,5 +22,6 @@ export const elements = {
     btnCancelOrder: '[data-testid="item-0"] > :nth-child(3) > [data-testid="cancel"]',
     btnConfirmCancelOrder: '[data-testid="confirm"]',
     btnRemove: '[data-testid="remove"]',
-    msgCartEmpty: '[data-testid="emptyCart"]'
+    msgCartEmpty: '[data-testid="emptyCart"]',
+    alertMsg: '[data-testid="warning"]'
 }
