@@ -2,12 +2,12 @@
 
 import { elements } from '../support/elements';
 
-describe('', () => {
+describe('Ecommerce checkout flow', () => {
 
     beforeEach(() => {
-        cy.setCookie('ebacStoreVersion', 'v2', { domain: 'lojaebac.ebaconline.art.br' })
+        cy.setEbacStoreVersionCookie()
         cy.visit('/')
-    })
+    });
 
     it('Complete purchase successfully', () => {
         cy.login()
@@ -18,23 +18,23 @@ describe('', () => {
         cy.get(elements.item).should('exist')
 
         cy.cancelOrder()
-    })
+    });
 
     it('Remove item from the cart', () => {
         cy.addProduct()
         cy.removeItem()
 
         cy.get(elements.msgCartEmpty).should('exist')
-    })
+    });
 
-    it('Buying without login', () => {
+    it('Buy without login', () => {
         cy.addProduct()
 
-        cy.get(elements.btnContinueToCheckout).should('have.css', 'pointer-events', 'none');
-    })
+        cy.get(elements.btnContinueToCheckout).should('have.css', 'pointer-events', 'none')
+    });
 
     afterEach(() => {
         cy.clearAllCookies
-    })
+    });
 
-})
+});
