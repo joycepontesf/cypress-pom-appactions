@@ -9,10 +9,13 @@ Cypress.Commands.add('login', () => {
     cy.get(elements.btnLogin).click()
 })
 
-Cypress.Commands.add('addProducts', () => {
+Cypress.Commands.add('addProduct', () => {
     cy.get(elements.product).eq(0).click()
     cy.get(elements.btnPurchase).click()
-    cy.get(elements.btnContinueToCheckout).click()
+})
+
+Cypress.Commands.add('completeOrder', () => {
+    cy.get(elements.btnContinueToCheckout).click()    
     cy.get(elements.btnCheckout).click()
     cy.wait(1000)
 })
@@ -27,4 +30,8 @@ Cypress.Commands.add('cancelOrder', () => {
     cy.get(elements.btnConfirmCancelOrder).click()
 
     cy.get(elements.item).should('not.exist')
+})
+
+Cypress.Commands.add('removeItem', () => {
+    cy.get(elements.btnRemove).click()
 })
