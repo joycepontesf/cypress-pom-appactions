@@ -1,4 +1,3 @@
-
 import { elements } from '../../elements';
 import { faker } from '@faker-js/faker';
 
@@ -9,23 +8,30 @@ export let phone = faker.phone.number()
 export let email = faker.internet.email()
 
 class newAccount {
-    
+
     accessProfilePage() {
         cy.visit('/')
         cy.get(elements.btnProfile).click()
     }
 
-    fillNewAccountInformation() {
-        cy.get(elements.btnsignUp).click()
-        cy.get(elements.txtFirstName).type(firstName)
-        cy.get(elements.txtLastName).type(lastName)
-        cy.get(elements.txtPhoneNumber).type(phone)
-        cy.get(elements.txtEmailCreation).type(email)
-        cy.get(elements.txtPassword).eq(1).type(password)
-        cy.get(elements.txtConfirmPassword).type(password)
-        cy.get(elements.btnCreate).click()
-        cy.get(elements.btnProfile).click()
+    fillNewAccountInformation({ firstNameInput = firstName, lastNameInput = lastName, phoneInput = phone, emailInput = email, passwordInput = password } = {}) {
+        cy.get(elements.btnsignUp).click();
+
+        if (firstNameInput)
+            cy.get(elements.txtFirstName).type(firstNameInput);
+        if (lastNameInput)
+            cy.get(elements.txtLastName).type(lastNameInput);
+        if (phoneInput)
+            cy.get(elements.txtPhoneNumber).type(phoneInput);
+        if (emailInput)
+            cy.get(elements.txtEmailCreation).type(emailInput);
+        if (passwordInput) {
+            cy.get(elements.txtPassword).eq(1).type(passwordInput);
+            cy.get(elements.txtConfirmPassword).type(passwordInput);
+        }
+
+        cy.get(elements.btnCreate).click();
     }
 }
 
-export default new newAccount()
+export default new newAccount();
