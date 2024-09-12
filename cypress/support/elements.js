@@ -20,6 +20,7 @@ export const elements = {
     item: '[data-testid="item-0"]',
     processingOrders: '[data-testid="Placed"]',
     btnCancelOrder: '[data-testid="item-0"] > :nth-child(3) > [data-testid="cancel"]',
-    btnConfirmCancelOrder: '[data-testid="confirm"]'
-
+    btnConfirmCancelOrder: '[data-testid="confirm"]',
+    btnRemove: '[data-testid="remove"]',
+    msgCartEmpty: '[data-testid="emptyCart"]'
 }
