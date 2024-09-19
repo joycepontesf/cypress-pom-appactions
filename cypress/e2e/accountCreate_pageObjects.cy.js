@@ -24,7 +24,7 @@ describe('Account creation flow', () => {
         cy.contains(elements.username, firstName).should('exist')
     });
 
-    it('Should show error messages when First Name is empty', () => {
+    it('Should show error messages when first name is empty', () => {
         newAccount.accessSignUpPage()
         newAccount.fillFirstName({
             firstNameInput: ''
@@ -38,7 +38,7 @@ describe('Account creation flow', () => {
         cy.get(elements.alertMsg).contains('Please enter firstName')
     });
 
-    it('Should show error messages when Last Name is empty', () => {
+    it('Should show error messages when last name is empty', () => {
         newAccount.accessSignUpPage()
         newAccount.fillFirstName()
         newAccount.fillLastName({
@@ -52,7 +52,7 @@ describe('Account creation flow', () => {
         cy.get(elements.alertMsg).contains('Please enter lastName')
     });
 
-    it('Should show error messages when Email is empty', () => {
+    it('Should show error messages when email is empty', () => {
         newAccount.accessSignUpPage()
         newAccount.fillFirstName()
         newAccount.fillLastName()
@@ -66,7 +66,7 @@ describe('Account creation flow', () => {
         cy.get(elements.alertMsg).contains('Please enter an email')
     });
 
-    it('Should show error messages when fields are empty', () => {
+    it('Should show error messages when password is empty', () => {
         newAccount.accessSignUpPage()
         newAccount.fillFirstName()
         newAccount.fillLastName()
