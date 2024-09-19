@@ -14,23 +14,39 @@ class newAccount {
         cy.get(elements.btnProfile).click()
     }
 
-    fillNewAccountInformation({ firstNameInput = firstName, lastNameInput = lastName, phoneInput = phone, emailInput = email, passwordInput = password } = {}) {
+    accessSignUpPage() {
         cy.get(elements.btnsignUp).click();
+    }
 
+    createAccount() {
+        cy.get(elements.btnCreate).click();
+    }
+
+    fillFirstName({ firstNameInput = firstName } = {}) {
         if (firstNameInput)
             cy.get(elements.txtFirstName).type(firstNameInput);
+    }
+
+    fillLastName({ lastNameInput = lastName } = {}) {
         if (lastNameInput)
             cy.get(elements.txtLastName).type(lastNameInput);
+    }
+
+    fillPhone({ phoneInput = phone } = {}) {
         if (phoneInput)
             cy.get(elements.txtPhoneNumber).type(phoneInput);
+    }
+
+    fillEmail({ emailInput = email } = {}) {
         if (emailInput)
             cy.get(elements.txtEmailCreation).type(emailInput);
+    }
+
+    fillPassword({ passwordInput = password } = {}) {
         if (passwordInput) {
             cy.get(elements.txtPassword).eq(1).type(passwordInput);
             cy.get(elements.txtConfirmPassword).type(passwordInput);
         }
-
-        cy.get(elements.btnCreate).click();
     }
 }
 
